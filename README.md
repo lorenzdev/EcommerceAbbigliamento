@@ -66,4 +66,4 @@ git push origin master
 ```  
 
 ### Consegna
-31/05/2019
+Entro il 31/05/2019
