@@ -13,7 +13,7 @@ Nome e cognome
 prof. Vitale Lorenzo
 
 ### Descrizione
-Obiettivo minimo (80punti)  
+**Obiettivo minimo (80punti)**   
 Realizzare un programma Client-Server che implementi il funzionamento di un sito di e-commerce
 di abbigliamento in cui viene gestita la banca dati dei clienti e delle newsletter commerciali.
 Ogni utente ha un account composto dalla propria e-mail e da una password in aggiunta ad una serie
@@ -32,12 +32,13 @@ possono richiedere l’elenco degli articoli fornendo la tipologia;
 Gli articoli mostrati all’utente, devono essere visualizzati secondo l’ordine di prezzo, dal più
 economico al più caro.
 
-Obiettivo avanzato (20 punti)  
+**Obiettivo avanzato (20 punti)** 
 Implementare un ulteriore servizio di multicasting che prevede che i Client si mettano in ascolto.
 Il Server, quando riceve un nuovo articolo da un Client, prima di salvarlo nel database lo invia a
 tutti gli altri Client connessi in ascolto che sono interessati a quella tipologia di articolo.
-N.B. Per semplificare la risoluzione di questo punto, prevedere che i Client, una volta in modalità
-di ricezione multicasting, non ricevano comandi di input dall’utente ma restano esclusivamente in ascolto.
+
+**SUGGERIMENTO: Per semplificare la risoluzione di questo punto, prevedere che i Client, una volta in modalità
+di ricezione multicasting, non ricevano comandi di input dall’utente ma restano esclusivamente in ascolto.*
 
 
 ### Usage
@@ -61,4 +62,4 @@ git push origin master
 ```
 
 ### Consegna
-07/06/2019
+31/05/2019
