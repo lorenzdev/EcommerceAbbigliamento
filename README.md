@@ -15,7 +15,7 @@ prof. Vitale Lorenzo
 ### Descrizione
 **Obiettivo minimo (80punti)**   
 Realizzare un programma Client-Server che implementi il funzionamento di un sito di e-commerce
-di abbigliamento in cui viene gestita la banca dati dei clienti e delle newsletter commerciali.
+di abbigliamento in cui viene gestita la banca dati dei clienti e di articoli di vendita.
 Ogni utente ha un account composto dalla propria e-mail e da una password in aggiunta ad una serie
 di informazioni personali come nome, cognome, numero di telefono, data di nascita, indirizzo e
 città di residenza.
