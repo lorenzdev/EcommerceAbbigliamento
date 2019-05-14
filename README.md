@@ -27,7 +27,7 @@ Il Server offre tre servizi ai Client:
 memorizzarli nella propria banca dati. All’atto dell’iscrizione, l’utente indica anche una
 serie di articoli a cui è interessato: abbigliamento sportivo, scarpe, accessori, etc.  
 **2.** Gli utenti iscritti, dopo essersi loggati inviando la propria e-mail e password di accesso,
-possono richiedere l’elenco degli articoli fornendo la tipologia;
+possono richiedere l’elenco degli articoli fornendo la tipologia;  
 **3.** Gli utenti iscritti possono, inoltre, inserire nuovi articoli;  
 Gli articoli mostrati all’utente, devono essere visualizzati secondo l’ordine di prezzo, dal più
 economico al più caro.
