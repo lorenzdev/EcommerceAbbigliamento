@@ -60,7 +60,7 @@ public class ClientTCP {
             try{
                 // CREO IL SOCKET
                 Socket client = new Socket(address, port);
-
+                int provoadaggiungereunariga=0;
                 // CREO LO STREAM SUL SOCKET
                 PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(client.getOutputStream())), true);
 
