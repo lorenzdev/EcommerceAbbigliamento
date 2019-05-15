@@ -1,73 +1,26 @@
-# E-commerce di abbigliamento
+# Esempio di connessione a MySql con JDBC (Java DataBase Connectivity)
 
-## Verifica TePSIT
+## PREMESSA
+Nel caso in cui si abbia installato sulla propria macchina XAMP oppure MAMP (per MacOs), non è necessario installare alcun database MySQL potete utilizzare quello fornito dal webserver che avete installato per usare PHP.  
 
-### Gruppo 1
-
-Tedeschini   
-Panebianco  
-Nocetti    
-
-### Docente
-
-prof. Vitale Lorenzo
-
-### Descrizione
-**Obiettivo minimo (80punti)**   
-Realizzare un programma Client-Server che implementi il funzionamento di un sito di e-commerce
-di abbigliamento in cui viene gestita la banca dati dei clienti e di articoli di vendita.
-Ogni utente ha un account composto dalla propria e-mail e da una password in aggiunta ad una serie
-di informazioni personali come nome, cognome, numero di telefono, data di nascita, indirizzo e
-città di residenza.
-L’e-commerce ha memorizzati una serie di articoli con una tipologia (scarpe, abbigliamento
-sportivo, abbigliamento casual, accessori, borse, intimo, etc.), un nome, una descrizione, una marca
-e un prezzo.
-Il Server offre tre servizi ai Client:  
-**1.** Permette ad un nuovo utente di iscriversi inviando i propri dati al Server che procede a
-memorizzarli nella propria banca dati. All’atto dell’iscrizione, l’utente indica anche una
-serie di articoli a cui è interessato: abbigliamento sportivo, scarpe, accessori, etc.  
-**2.** Gli utenti iscritti, dopo essersi loggati inviando la propria e-mail e password di accesso,
-possono richiedere l’elenco degli articoli fornendo la tipologia;  
-**3.** Gli utenti iscritti possono, inoltre, inserire nuovi articoli;  
-Gli articoli mostrati all’utente, devono essere visualizzati secondo l’ordine di prezzo, dal più
-economico al più caro.
-
-**Obiettivo avanzato (20 punti)**   
-Implementare un ulteriore servizio di multicasting che prevede che i Client si mettano in ascolto.
-Il Server, quando riceve un nuovo articolo da un Client, prima di salvarlo nel database lo invia a
-tutti gli altri Client connessi in ascolto che sono interessati a quella tipologia di articolo.
-
-*SUGGERIMENTO: Per semplificare la risoluzione di questo punto, prevedere che i Client, una volta in modalità
-di ricezione multicasting, non ricevano comandi di input dall’utente ma restano esclusivamente in ascolto.*
-
-
-### Usage
-
-Prima operazione da effettuare è ottenere il progetto dal repository lanciando il seguente comando dalla bash di git
-```
-git clone https://github.com/lorenzdev/EcommerceAbbigliamento.git
-```
-Successivamente lanciare i seguenti comandi per ottenere le modifiche:
+Per effettuare la connessione è necessario conoscere la porta su cui il vostro MySQL risponde (lo potete vedere da Control Panel di XAMP in corrispondenza della riga del vostro MySQL).
+  
+Di seguito il codice necessario ad effettuare la connessione (lo troverete nel .java dell'esempio):  
 
 ```
-git pull origin master
-```
-
-e per pubblicare le proprie modifiche:
-
-```
-git add .  
+1. static final String DB_URL = "jdbc:mysql://localhost:3306/dbname";
+2. static final String DB_DRV = "com.mysql.jdbc.Driver";
+3. static final String DB_USER = "root";
+4. static final String DB_PASSWD = "root";  
 ```  
-```
-git commit -m "descrizione del commit"  
-```  
-```
-git push origin master  
-```  
+La riga 1. indica l'URL del database. Si noti che 3306 è il numero di porta di default su cui MySQL risponde. Se la connessione non funziona è perchè il numero di porta impostato è diverso.
+La riga 2. contiene il nome del package del Driver per la connessione.
+Le righe 3. e 4. sono l'user e la password per effettuare la connessione al vostro database.
 
-### Consegna
-Entro il 31/05/2019
-
-### Note  
-In caso di richiesta di chiarimenti potete scrivere alla mail personale del docente: lorenzo.dev@gmail.com  
-Buon lavoro!
+Prima di utilizzare l'esempio all'interno del vostro progetto, ricordatevi di aggiungere la libreria, in Netbeans, necessaria ad un suo corretto funzionamento.
+Come fare...
+1) Click sul tasto destra del mouse sul nome del progetto all'interno della finestra dei progetti.
+2) Cliccare nel menu sulla voce Proprietà.
+3) Spostarsi sulla voce Libraries
+4) Nel tab "Compile", cliccare su "Add project..." e selezionare la voce "MySQL JDBC Driver"
+5) Dare Ok, tornare al progetto e provare a compilare
