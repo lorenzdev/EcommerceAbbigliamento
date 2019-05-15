@@ -18,10 +18,10 @@ import java.sql.SQLException;
  */
 public class DBConnection {
 
-    static final String DB_URL = "jdbc:mysql://localhost:8889/prova";
+    static final String DB_URL = "jdbc:mysql://localhost/test";
     static final String DB_DRV = "com.mysql.jdbc.Driver";
     static final String DB_USER = "root";
-    static final String DB_PASSWD = "root";
+    static final String DB_PASSWD = "";
     static Connection connection = null;
     static Statement statement = null;
     static ResultSet resultSet = null;
@@ -34,8 +34,21 @@ public class DBConnection {
            // CREO LA CONNESSIONE AL DATABASE
            Class.forName(DB_DRV);
            connection=DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWD);
-           statement=connection.createStatement();
+           System.out.print("Database is connected !");
+           connection.close();
            
+
+
+
+
+            //Class.forName("com.mysql.jdbc.Driver");
+            //Connection conn = null;
+            //conn = DriverManager.getConnection("jdbc:mysql://localhost/test","root", "");
+
+
+
+//statement=connection.createStatement();
+           /*
            // EFFETTUO UNA SELECT
            DBConnection.viewRows();
            
@@ -59,24 +72,18 @@ public class DBConnection {
            
            // EFFETTUO UNA SELECT (CON LA RIMOZIONE DELLA RIGA INSERITA)
            DBConnection.viewRows();
-           
+           */
         }catch(Exception ex){
             ex.printStackTrace();
-        }finally{
-           try {
-              resultSet.close();
-              statement.close();
-              connection.close();
-           } catch (SQLException ex) {
-               ex.printStackTrace();
-           }
         }
      }
     
     
     public static void viewRows(){
         
+ /*
         try{
+            
             // ESEGUO UNA QUERY DI SELEZIONE
             PreparedStatement sel = connection.prepareStatement("SELECT * FROM utenti");
             resultSet=sel.executeQuery();
@@ -148,5 +155,8 @@ public class DBConnection {
             sql_e.printStackTrace();
         }
     }
-        
+        */
+    }
 }
+        
+
