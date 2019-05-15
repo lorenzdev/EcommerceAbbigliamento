@@ -5,7 +5,7 @@ Nel caso in cui si abbia installato sulla propria macchina XAMP oppure MAMP (per
 
 Per effettuare la connessione è necessario conoscere la porta su cui il vostro MySQL risponde (lo potete vedere da Control Panel di XAMP in corrispondenza della riga del vostro MySQL).
   
-Di seguito il codice necessario ad effettuare la connessione (lo troverete nel .java dell'esempio):  
+Di seguito le variabili necessarie per effettuare la connessione (lo troverete nel .java dell'esempio):  
 
 ```
 1. static final String DB_URL = "jdbc:mysql://localhost:3306/dbname";
