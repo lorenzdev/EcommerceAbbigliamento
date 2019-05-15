@@ -15,7 +15,7 @@ prof. Vitale Lorenzo
 ### Descrizione
 **Obiettivo minimo (80punti)**   
 Realizzare un programma Client-Server che implementi il funzionamento di un sito di e-commerce
-di abbigliamento in cui viene gestita la banca dati dei clienti e delle newsletter commerciali.
+di abbigliamento in cui viene gestita la banca dati dei clienti e di articoli di vendita.
 Ogni utente ha un account composto dalla propria e-mail e da una password in aggiunta ad una serie
 di informazioni personali come nome, cognome, numero di telefono, data di nascita, indirizzo e
 città di residenza.
@@ -27,7 +27,7 @@ Il Server offre tre servizi ai Client:
 memorizzarli nella propria banca dati. All’atto dell’iscrizione, l’utente indica anche una
 serie di articoli a cui è interessato: abbigliamento sportivo, scarpe, accessori, etc.  
 **2.** Gli utenti iscritti, dopo essersi loggati inviando la propria e-mail e password di accesso,
-possono richiedere l’elenco degli articoli fornendo la tipologia;
+possono richiedere l’elenco degli articoli fornendo la tipologia;  
 **3.** Gli utenti iscritti possono, inoltre, inserire nuovi articoli;  
 Gli articoli mostrati all’utente, devono essere visualizzati secondo l’ordine di prezzo, dal più
 economico al più caro.
@@ -67,3 +67,7 @@ git push origin master
 
 ### Consegna
 Entro il 31/05/2019
+
+### Note  
+In caso di richiesta di chiarimenti potete scrivere alla mail personale del docente: lorenzo.dev@gmail.com  
+Buon lavoro!
