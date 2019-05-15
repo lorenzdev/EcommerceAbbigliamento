@@ -8,14 +8,14 @@ Per effettuare la connessione è necessario conoscere la porta su cui il vostro 
 Di seguito le variabili necessarie per effettuare la connessione (lo troverete nel .java dell'esempio):  
 
 ```
-1. static final String DB_URL = "jdbc:mysql://localhost:3306/dbname";
-2. static final String DB_DRV = "com.mysql.jdbc.Driver";
-3. static final String DB_USER = "root";
-4. static final String DB_PASSWD = "root";  
+1. static final String DB_URL = "jdbc:mysql://localhost:3306/dbname";  
+2. static final String DB_DRV = "com.mysql.jdbc.Driver";  
+3. static final String DB_USER = "root";  
+4. static final String DB_PASSWD = "root";    
 ```  
-La riga 1. indica l'URL del database. Si noti che 3306 è il numero di porta di default su cui MySQL risponde. Se la connessione non funziona è perchè il numero di porta impostato è diverso.
-La riga 2. contiene il nome del package del Driver per la connessione.
-Le righe 3. e 4. sono l'user e la password per effettuare la connessione al vostro database.
+La riga 1. indica l'URL del database. Si noti che 3306 è il numero di porta di default su cui MySQL risponde. Se la connessione non funziona è perchè il numero di porta impostato è diverso.  
+La riga 2. contiene il nome del package del Driver per la connessione.  
+Le righe 3. e 4. sono l'user e la password per effettuare la connessione al vostro database.  
 
 Prima di utilizzare l'esempio all'interno del vostro progetto, ricordatevi di aggiungere la libreria, in Netbeans, necessaria ad un suo corretto funzionamento.
 Come fare...
