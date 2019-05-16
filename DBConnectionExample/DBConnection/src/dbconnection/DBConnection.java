@@ -18,7 +18,7 @@ import java.sql.SQLException;
  */
 public class DBConnection {
 
-    static final String DB_URL = "jdbc:mysql://localhost/test";
+    static final String DB_URL = "jdbc:mysql://localhost/ecommerce";
     static final String DB_DRV = "com.mysql.jdbc.Driver";
     static final String DB_USER = "root";
     static final String DB_PASSWD = "";
@@ -34,7 +34,7 @@ public class DBConnection {
            // CREO LA CONNESSIONE AL DATABASE
            Class.forName(DB_DRV);
            connection=DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWD);
-           System.out.print("Database is connected !");
+           System.out.print("Database is connected !\n");
            connection.close();
            
 
