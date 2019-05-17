@@ -4,6 +4,10 @@ package javasockettcp;
 
 import java.net.*;
 import java.io.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 
 public class ClientThread extends Thread{
     //creo le variabili che utilizzeò per la comunicazione
@@ -31,6 +35,10 @@ public class ClientThread extends Thread{
             //creo i canali per la comunicazione
             out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(client.getOutputStream())), true);
             in = new BufferedReader(new InputStreamReader(client.getInputStream()));
+            String risp;
+
+
+
             // RICEVO IL DATO INVIATO DAL CLIENT
             //in.readLine();
             //out.println();
@@ -45,6 +53,10 @@ public class ClientThread extends Thread{
             
             //stringa che fa uscire dall'ascolto il client e permette di rispondere
             out.println("Spezzano");
+            
+            risp=in.readLine();
+            
+            
         }catch(IOException e){
             out.println("C'è stato un errore nel server, riprova!");
         }

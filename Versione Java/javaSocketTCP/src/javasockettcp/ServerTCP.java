@@ -5,9 +5,6 @@ import java.net.*;
 import java.io.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.sql.SQLException;
 
 
@@ -29,7 +26,6 @@ public class ServerTCP {
                 connection=DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWD);
                 System.out.print("Database is connected !");
                 connection.close();
-
                  }
             catch (ClassNotFoundException | SQLException ex){
                  System.out.println("errore durante la connessione al DB \n"+ex);
