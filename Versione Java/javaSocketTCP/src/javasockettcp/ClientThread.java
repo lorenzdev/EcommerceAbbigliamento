@@ -91,8 +91,8 @@ public class ClientThread extends Thread{
             //stringa che fa uscire dall'ascolto il client e permette di rispondere
             out.println("Spezzano");
 
-            String us="";
-            String pw="";
+ 
+            String pw;
             String email;
 
             risp=in.readLine();
@@ -100,26 +100,47 @@ public class ClientThread extends Thread{
             switch (Integer.parseInt(risp))
                     {
                 case 1:
-                    out.println("Inserisci l'username");
+                    out.println("Inserisci l'email");
                     out.println("Spezzano");
-                    us=in.readLine();
+                    email=in.readLine();
                     out.println("Inserisci la password");
                     out.println("Spezzano");
                     pw=in.readLine();
-                    out.println(FunzioniServer.Login(us, pw));
+                    out.println(FunzioniServer.Login(email, pw));
                     break;
 
                 case 2:
+                    String nome;
+                    String cognome;
+                    String numeroTelefono;
+                    String indirizzo;
+                    String dataNascita;
+                    String citta;
                     out.println("Inserisci l'e-mail");
                     out.println("Spezzano");
                     email=in.readLine();
-                    out.println("Inserisci l'username");
+                    out.println("Inserisci il nome");
                     out.println("Spezzano");
-                    us=in.readLine();                    
+                    nome=in.readLine(); 
+                    out.println("Inserisci il cognome");
+                    out.println("Spezzano");
+                    cognome=in.readLine();
                     out.println("Inserisci la password");
                     out.println("Spezzano");
                     pw=in.readLine();
-                    out.println(FunzioniServer.Registrarsi(email,us, pw));
+                    out.println("Inserisci il numero di telefono");
+                    out.println("Spezzano");
+                    numeroTelefono=in.readLine();
+                    out.println("Inserisci indirizzo");
+                    out.println("Spezzano");
+                    indirizzo=in.readLine();
+                    out.println("Inserisci la data di nascita");
+                    out.println("Spezzano");
+                    dataNascita=in.readLine();
+                    out.println("Inserisci la citta");
+                    out.println("Spezzano");
+                    citta=in.readLine();
+                    out.println(FunzioniServer.Registrarsi(email,nome, cognome,pw,numeroTelefono,indirizzo,dataNascita,citta));
                     break;
                 default:
                     out.println("inserisci un valore valido (1) o (2)");
