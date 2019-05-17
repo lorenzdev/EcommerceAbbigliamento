@@ -6,6 +6,9 @@ import java.net.*;
 import java.io.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.sql.SQLException;
 
 
@@ -14,7 +17,12 @@ public class ClientThread extends Thread{
     Socket client;
     BufferedReader in;
     PrintWriter out;
-
+    static final String DB_URL = "jdbc:mysql://localhost/ecommerce";
+    static final String DB_DRV = "com.mysql.jdbc.Driver";
+    static final String DB_USER = "root";
+    static final String DB_PASSWD = "";
+    static ResultSet resultSet = null;
+    static Connection connection = null;
     
     //costruttore
     public ClientThread(Socket client){
@@ -31,6 +39,11 @@ public class ClientThread extends Thread{
         //TODO interfaccia per inserire nuovi articoli
         //TODO implementare servizio multicast
         
+        
+        
+        
+
+        
         try{
             //creo i canali per la comunicazione
             out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(client.getOutputStream())), true);
@@ -38,7 +51,29 @@ public class ClientThread extends Thread{
             String risp;
 
 
+            try{
+            //TEST PER VEDERE LA CONNESSIONE AL DB E LE QUERY
+            Class.forName(DB_DRV);
+            connection=DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWD);
+            System.out.print("Database is connected !");
+            //DB CONNESSO
+            //SCRIVO LA QUERY
+            PreparedStatement sel = connection.prepareStatement("SELECT * FROM utenti");
+            //PRENDO I RISULTATI DELLA QUERY
+            resultSet=sel.executeQuery();
 
+            int cont = 1;
+            //CICLO PER LE SOLUZIONI
+            while(resultSet.next()){
+                //getString con dentro il nome della colonna
+               out.println(resultSet.getString("email"));
+               cont++;
+               connection.close();
+             }
+        }
+        catch (ClassNotFoundException | SQLException ex){
+             System.out.println("errore durante la connessione al DB \n"+ex);
+             }
             // RICEVO IL DATO INVIATO DAL CLIENT
             //in.readLine();
             //out.println();
@@ -53,7 +88,6 @@ public class ClientThread extends Thread{
             
             //stringa che fa uscire dall'ascolto il client e permette di rispondere
             out.println("Spezzano");
-            
             risp=in.readLine();
             
             
