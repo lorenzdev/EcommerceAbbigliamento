@@ -1,0 +1,5 @@
+Spostare questa cartella dentro la cartella accessibile da XAMPP (xampp->htdocs) e aprirla dal browser con l'indirizzo
+
+127.0.0.1/creazioneDB
+
+eseguire i comandi soltanto la prima volta (e in ordine), per avere una versione base del database

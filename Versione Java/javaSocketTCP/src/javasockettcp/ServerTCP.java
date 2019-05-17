@@ -3,15 +3,26 @@ package javasockettcp;
 
 import java.net.*;
 import java.io.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 
 public class ServerTCP {
     //porta su cui viene offerto il servizio di eCommerce
-    private static int port = 3333; 
-    
+    private static final int port = 3333; 
+    static final String DB_URL = "jdbc:mysql://localhost/ecommerce";
+    static final String DB_DRV = "com.mysql.jdbc.Driver";
+    static final String DB_USER = "root";
+    static final String DB_PASSWD = "";
+    static Connection connection = null;
     public static void main(String[] args) {
 
-        try{
+
+            
+            try{
+
+            
             //creo il socket su cui viene offerto il servizio
             ServerSocket socket = new ServerSocket(port);
             System.out.println("Server pronto!");
