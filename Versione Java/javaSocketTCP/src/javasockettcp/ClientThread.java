@@ -35,9 +35,8 @@ public class ClientThread extends Thread{
     @Override
     public void run(){
         
-        //TODO comunicazione con il DB per le informazioni.
-        //TODO interfaccia per la registrazione
-        //TODO interfaccia per il login
+        
+        
         //TODO interfaccia per inserire nuovi articoli
         //TODO implementare servizio multicast
         
@@ -86,6 +85,8 @@ public class ClientThread extends Thread{
                     out.println(FunzioniServer.Login(email, pw));
                     break;
 
+                    
+                //probabilmente sarebbe più carino farlo con un vettore e un loop
                 case 2:
                     String nome;
                     String cognome;
@@ -121,17 +122,23 @@ public class ClientThread extends Thread{
                     out.println("Spezzano");
                     break;
                 default:
-                    //TODO modo per far tornare all'inizio della selezione il programma
+                    
                     out.println("inserisci un valore valido (1) o (2)");
+                    //fa ripartire il thread da capo, ma è una soluzione valida?
+                    this.run(); 
                     break;
             }                    
             }catch(Exception e)
             {
-                //TODO modo per far tornare all'inizio della selezione il programma
+                
                 out.println("inserisci un valore valido");
+                //fa ripartire il thread da capo, ma è una soluzione valida?
+                this.run();
             }
 
             
+                
+                
         }catch(IOException e){
             out.println("C'è stato un errore nel server, riprova!");
             out.println("Spezzano");
