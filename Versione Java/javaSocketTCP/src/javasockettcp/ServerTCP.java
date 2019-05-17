@@ -18,19 +18,10 @@ public class ServerTCP {
     static Connection connection = null;
     public static void main(String[] args) {
 
-        try{
+
             
             try{
-            //TEST PER VEDERE LA CONNESSIONE AL DB
-                Class.forName(DB_DRV);
-                connection=DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWD);
-                System.out.print("Database is connected !");
-                connection.close();
-                 }
-            catch (ClassNotFoundException | SQLException ex){
-                 System.out.println("errore durante la connessione al DB \n"+ex);
-                 }
-            //TEST PER VEDERE LA CONNESSIONE AL DB
+
             
             //creo il socket su cui viene offerto il servizio
             ServerSocket socket = new ServerSocket(port);

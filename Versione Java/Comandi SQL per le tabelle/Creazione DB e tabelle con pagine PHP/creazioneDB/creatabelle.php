@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 <title>Creazione tabelle</title>
@@ -42,7 +42,7 @@ if (!$ok) {
 	password CHAR(20) NOT NULL,
 	nome CHAR(50) NOT NULL,
 	cognome CHAR(50) NOT NULL,
-	numeroTelefono INT(10) NOT NULL,
+	numeroTelefono CHAR(30) NOT NULL,
 	dataNascita CHAR(10) NOT NULL,
 	indirizzo CHAR(60) NOT NULL,
 	citta CHAR(57) NOT NULL,

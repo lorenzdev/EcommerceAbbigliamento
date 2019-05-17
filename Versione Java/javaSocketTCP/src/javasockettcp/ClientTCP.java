@@ -8,13 +8,17 @@ import java.util.*;
 
 
 public class ClientTCP {
-    
+    private static final int port = 3333; 
 
     public ClientTCP(String address, int port){
         //creo lo scanner per le future operazioni di Input
         Scanner lettura = new Scanner(System.in);
         String cmd="";
+        
 
+        
+        
+            //TEST PER VEDERE LA CONNESSIONE AL DB
             try{
                 //creo il socket per la comunicazione con il server
                 Socket client = new Socket(address, port);
