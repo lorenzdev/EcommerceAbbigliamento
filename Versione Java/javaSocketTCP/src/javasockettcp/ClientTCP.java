@@ -57,17 +57,16 @@ public class ClientTCP {
     
     public static void main(String args[]){
         
-        
+      
         System.out.println("Qual è l'indirizzo del server?");
         Scanner sc_address = new Scanner(System.in);
-        String address = sc_address.nextLine();
-        
+        String address = sc_address.nextLine(); 
         System.out.println("Qual è la porta su cui il server offre il servizio?");
         Scanner sc_port = new Scanner(System.in);
         String str_port = sc_port.nextLine();
-        
+        System.out.println(ClientGUI.ip);
         int port = Integer.parseInt(str_port);
-        new ClientTCP(address, port);
+        new ClientTCP(address, port); 
     }
     
 }
