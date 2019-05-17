@@ -9,6 +9,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 
+
+
 public class ClientThread extends Thread{
     //creo le variabili che utilizzeò per la comunicazione
     Socket client;
@@ -21,7 +23,7 @@ public class ClientThread extends Thread{
         this.client = client;
 
     }
-    
+
     @Override
     public void run(){
         
@@ -53,9 +55,44 @@ public class ClientThread extends Thread{
             
             //stringa che fa uscire dall'ascolto il client e permette di rispondere
             out.println("Spezzano");
-            
+            String us="";
+            String pw="";
+            String email;
             risp=in.readLine();
-            
+                try{
+            switch (Integer.parseInt(risp))
+                    {
+                case 1:
+                    out.println("Inserisci l'username");
+                    out.println("Spezzano");
+                    us=in.readLine();
+                    out.println("Inserisci la password");
+                    out.println("Spezzano");
+                    pw=in.readLine();
+                    out.println(FunzioniServer.Login(us, pw));
+                    break;
+
+                case 2:
+                    out.println("Inserisci l'e-mail");
+                    out.println("Spezzano");
+                    email=in.readLine();
+                    out.println("Inserisci l'username");
+                    out.println("Spezzano");
+                    us=in.readLine();                    
+                    out.println("Inserisci la password");
+                    out.println("Spezzano");
+                    pw=in.readLine();
+                    out.println(FunzioniServer.Registrarsi(email,us, pw));
+                    break;
+                default:
+                    out.println("inserisci un valore valido (1) o (2)");
+                    break;
+            }                    
+            }catch(Exception e)
+            {
+                out.println("inserisci un valore valido");
+            }
+
             
         }catch(IOException e){
             out.println("C'è stato un errore nel server, riprova!");
