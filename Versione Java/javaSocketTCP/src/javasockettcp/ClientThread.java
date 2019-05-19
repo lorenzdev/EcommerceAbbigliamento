@@ -4,12 +4,6 @@ package javasockettcp;
 
 import java.net.*;
 import java.io.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.sql.SQLException;
 
 
 
@@ -19,12 +13,7 @@ public class ClientThread extends Thread{
     Socket client;
     BufferedReader in;
     PrintWriter out;
-    static final String DB_URL = "jdbc:mysql://localhost/ecommerce";
-    static final String DB_DRV = "com.mysql.jdbc.Driver";
-    static final String DB_USER = "root";
-    static final String DB_PASSWD = "";
-    static ResultSet resultSet = null;
-    static Connection connection = null;
+    public static String nomeClient;
     
     //costruttore
     public ClientThread(Socket client){
@@ -82,7 +71,12 @@ public class ClientThread extends Thread{
                     out.println("Inserisci la password");
                     out.println("Spezzano");
                     pw=in.readLine();
-                    out.println(FunzioniServer.Login(email, pw));
+                    String risposta=FunzioniServer.Login(email, pw);
+                    out.println(risposta);
+                    //si potrebbe ricavare il nome, ma al momento va bene così
+                    if (risposta.equals("Loggato correttamente!\n"))
+                        nomeClient=email;
+                    out.println(nomeClient);
                     break;
 
                     
@@ -119,7 +113,9 @@ public class ClientThread extends Thread{
                     out.println("Spezzano");
                     citta=in.readLine();
                     out.println(FunzioniServer.Registrarsi(email,nome, cognome,pw,numeroTelefono,indirizzo,dataNascita,citta));
-                    out.println("Spezzano");
+                    //fa ripartire il thread da capo, ma è una soluzione valida? non è che in realtà si duplica?
+                    this.run(); 
+                    //out.println("Spezzano");
                     break;
                 default:
                     
