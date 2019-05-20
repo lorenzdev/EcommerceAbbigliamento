@@ -133,14 +133,44 @@ public class ClientThread extends Thread{
                 this.run();
             }
             
+            
             out.println("Benvenuto "+nomeClient+", ora che è loggato può vedere la lista dei prodotti(1) oppure aggiungerne uno lei(2)");
             out.println("Spezzano");
-            
+            Home();
                 
                 
         }catch(IOException e){
             out.println("C'è stato un errore nel server, riprova!");
             out.println("Spezzano");
+        }
+    }
+    
+    public void Home(){
+        try{
+        String risp=in.readLine();
+                try{
+            switch (Integer.parseInt(risp))
+                    {
+                case 1:
+                    //vedere lista prodotti
+                    break;
+
+                case 2:
+                    //aggiungerne uno
+                    break;
+                    
+                default:
+                    out.println("inserisci un valore valido (1) o (2)");
+                    break;
+            }                    
+            }catch(Exception e)
+            {
+                out.println("inserisci un valore valido");
+            }
+        }
+        
+        catch(Exception ex){
+            
         }
     }
 }
