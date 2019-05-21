@@ -13,7 +13,7 @@ public class ClientThread extends Thread{
     Socket client;
     BufferedReader in;
     PrintWriter out;
-    public static String nomeClient;
+    public static String nomeClient = ">>>>----<<<<";
     
     //costruttore
     public ClientThread(Socket client){
@@ -76,7 +76,7 @@ public class ClientThread extends Thread{
                     //si potrebbe ricavare il nome, ma al momento va bene così
                     if (risposta.equals("Loggato correttamente!\n"))
                         nomeClient=email;
-                    out.println(nomeClient);
+
                     break;
 
                     
@@ -113,31 +113,64 @@ public class ClientThread extends Thread{
                     out.println("Spezzano");
                     citta=in.readLine();
                     out.println(FunzioniServer.Registrarsi(email,nome, cognome,pw,numeroTelefono,indirizzo,dataNascita,citta));
-                    //fa ripartire il thread da capo, ma è una soluzione valida? non è che in realtà si duplica?
-                    this.run(); 
+                    
                     //out.println("Spezzano");
                     break;
                 default:
-                    
                     out.println("inserisci un valore valido (1) o (2)");
-                    //fa ripartire il thread da capo, ma è una soluzione valida?
-                    this.run(); 
                     break;
             }                    
             }catch(Exception e)
             {
-                
                 out.println("inserisci un valore valido");
+
+            }
+                
+            //se non si è loggato
+            if (nomeClient.equals(">>>>----<<<<"))
+            {
                 //fa ripartire il thread da capo, ma è una soluzione valida?
                 this.run();
             }
-
             
+            
+            out.println("Benvenuto "+nomeClient+", ora che è loggato può vedere la lista dei prodotti(1) oppure aggiungerne uno lei(2)");
+            out.println("Spezzano");
+            Home();
                 
                 
         }catch(IOException e){
             out.println("C'è stato un errore nel server, riprova!");
             out.println("Spezzano");
+        }
+    }
+    
+    public void Home(){
+        try{
+        String risp=in.readLine();
+                try{
+            switch (Integer.parseInt(risp))
+                    {
+                case 1:
+                    //vedere lista prodotti
+                    break;
+
+                case 2:
+                    //aggiungerne uno
+                    break;
+                    
+                default:
+                    out.println("inserisci un valore valido (1) o (2)");
+                    break;
+            }                    
+            }catch(Exception e)
+            {
+                out.println("inserisci un valore valido");
+            }
+        }
+        
+        catch(Exception ex){
+            
         }
     }
 }

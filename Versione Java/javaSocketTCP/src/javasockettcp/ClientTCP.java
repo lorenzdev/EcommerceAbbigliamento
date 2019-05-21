@@ -18,7 +18,7 @@ public class ClientTCP {
 
         
         
-            //TEST PER VEDERE LA CONNESSIONE AL DB
+            
             try{
                 //creo il socket per la comunicazione con il server
                 Socket client = new Socket(address, port);
