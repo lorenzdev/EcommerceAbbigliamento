@@ -23,7 +23,7 @@ $sql ="SELECT * FROM Prodotti";
 $ok = mysqli_query($conn,$sql);
 if (!$ok) {
 
-	$sql ="";
+	$sql ="INSERT INTO Prodotti (idProdotto, tipologia) VALUES ('1', 'A');";
 
 	$ok = mysqli_query($conn,$sql);
 	if (!$ok) die("Impossibile inserire i dati <br> ".mysqli_error($conn));
