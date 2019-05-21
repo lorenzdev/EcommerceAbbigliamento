@@ -18,7 +18,7 @@ public class ClientTCP {
 
         
         
-            //TEST PER VEDERE LA CONNESSIONE AL DB
+            
             try{
                 //creo il socket per la comunicazione con il server
                 Socket client = new Socket(address, port);
@@ -26,9 +26,8 @@ public class ClientTCP {
                 //creo i canali di comunicazione con il server
                 PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(client.getOutputStream())), true);
                 BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
+                System.out.println("Avviata comunicazione con il server, digitare EXIT quando possibile per chiudere il programma \n");
                 while(!cmd.equals("EXIT")){
-                    
-                    System.out.println("Avviata comunicazione con il server, digitare EXIT quando possibile per chiudere il programma \n");
 
                     //ciclo per le risposte del server
                     String risp = in.readLine();

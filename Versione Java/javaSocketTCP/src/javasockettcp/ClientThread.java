@@ -4,12 +4,6 @@ package javasockettcp;
 
 import java.net.*;
 import java.io.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.sql.SQLException;
 
 
 
@@ -19,12 +13,7 @@ public class ClientThread extends Thread{
     Socket client;
     BufferedReader in;
     PrintWriter out;
-    static final String DB_URL = "jdbc:mysql://localhost/ecommerce";
-    static final String DB_DRV = "com.mysql.jdbc.Driver";
-    static final String DB_USER = "root";
-    static final String DB_PASSWD = "";
-    static ResultSet resultSet = null;
-    static Connection connection = null;
+    public static String nomeClient = ">>>>----<<<<";
     
     //costruttore
     public ClientThread(Socket client){
@@ -35,9 +24,8 @@ public class ClientThread extends Thread{
     @Override
     public void run(){
         
-        //TODO comunicazione con il DB per le informazioni.
-        //TODO interfaccia per la registrazione
-        //TODO interfaccia per il login
+        
+        
         //TODO interfaccia per inserire nuovi articoli
         //TODO implementare servizio multicast
         
@@ -51,31 +39,6 @@ public class ClientThread extends Thread{
             out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(client.getOutputStream())), true);
             in = new BufferedReader(new InputStreamReader(client.getInputStream()));
             String risp;
-
-
-            try{
-            //TEST PER VEDERE LA CONNESSIONE AL DB E LE QUERY
-            Class.forName(DB_DRV);
-            connection=DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWD);
-            System.out.print("Database is connected !");
-            //DB CONNESSO
-            //SCRIVO LA QUERY
-            PreparedStatement sel = connection.prepareStatement("SELECT * FROM utenti");
-            //PRENDO I RISULTATI DELLA QUERY
-            resultSet=sel.executeQuery();
-
-            int cont = 1;
-            //CICLO PER LE SOLUZIONI
-            while(resultSet.next()){
-                //getString con dentro il nome della colonna
-               out.println(resultSet.getString("email"));
-               cont++;
-               connection.close();
-             }
-        }
-        catch (ClassNotFoundException | SQLException ex){
-             System.out.println("errore durante la connessione al DB \n"+ex);
-             }
             // RICEVO IL DATO INVIATO DAL CLIENT
             //in.readLine();
             //out.println();
@@ -92,6 +55,8 @@ public class ClientThread extends Thread{
             out.println("Spezzano");
 
  
+            //TODO una specie di chiave di sessione, che una volta loggato ti identifichi
+            
             String pw;
             String email;
 
@@ -106,9 +71,16 @@ public class ClientThread extends Thread{
                     out.println("Inserisci la password");
                     out.println("Spezzano");
                     pw=in.readLine();
-                    out.println(FunzioniServer.Login(email, pw));
+                    String risposta=FunzioniServer.Login(email, pw);
+                    out.println(risposta);
+                    //si potrebbe ricavare il nome, ma al momento va bene così
+                    if (risposta.equals("Loggato correttamente!\n"))
+                        nomeClient=email;
+
                     break;
 
+                    
+                //probabilmente sarebbe più carino farlo con un vettore e un loop
                 case 2:
                     String nome;
                     String cognome;
@@ -141,6 +113,8 @@ public class ClientThread extends Thread{
                     out.println("Spezzano");
                     citta=in.readLine();
                     out.println(FunzioniServer.Registrarsi(email,nome, cognome,pw,numeroTelefono,indirizzo,dataNascita,citta));
+                    
+                    //out.println("Spezzano");
                     break;
                 default:
                     out.println("inserisci un valore valido (1) o (2)");
@@ -149,11 +123,54 @@ public class ClientThread extends Thread{
             }catch(Exception e)
             {
                 out.println("inserisci un valore valido");
-            }
 
+            }
+                
+            //se non si è loggato
+            if (nomeClient.equals(">>>>----<<<<"))
+            {
+                //fa ripartire il thread da capo, ma è una soluzione valida?
+                this.run();
+            }
             
+            
+            out.println("Benvenuto "+nomeClient+", ora che è loggato può vedere la lista dei prodotti(1) oppure aggiungerne uno lei(2)");
+            out.println("Spezzano");
+            Home();
+                
+                
         }catch(IOException e){
             out.println("C'è stato un errore nel server, riprova!");
+            out.println("Spezzano");
+        }
+    }
+    
+    public void Home(){
+        try{
+        String risp=in.readLine();
+                try{
+            switch (Integer.parseInt(risp))
+                    {
+                case 1:
+                    //vedere lista prodotti
+                    break;
+
+                case 2:
+                    //aggiungerne uno
+                    break;
+                    
+                default:
+                    out.println("inserisci un valore valido (1) o (2)");
+                    break;
+            }                    
+            }catch(Exception e)
+            {
+                out.println("inserisci un valore valido");
+            }
+        }
+        
+        catch(Exception ex){
+            
         }
     }
 }
