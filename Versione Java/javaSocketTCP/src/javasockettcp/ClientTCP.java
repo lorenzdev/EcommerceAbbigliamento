@@ -64,7 +64,6 @@ public class ClientTCP {
         System.out.println("Qual è la porta su cui il server offre il servizio?");
         Scanner sc_port = new Scanner(System.in);
         String str_port = sc_port.nextLine();
-        System.out.println(ClientGUI.ip);
         int port = Integer.parseInt(str_port);
         new ClientTCP(address, port); 
     }
