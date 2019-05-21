@@ -126,5 +126,38 @@ public class FunzioniServer {
             System.out.println("errore durante la connessione al DB \n"+ex);
         }
     }
+    
+                        String tipologia;
+                    String nome;
+                    String descrizione;
+                    String marca;
+                    float prezzo;
+    
+    public static String inserimentoDB(String tipologia, String nome, String descrizione, String marca, Float prezzo,String nomeClient){
+        Connection conn = ConnessioneDB();
+        
+        try {
+            //controlla che sia valida la connessione, dopo 10 secondi
+            //restituisce il valore false
+            if(conn.isValid(10)){
+                PreparedStatement ins = connection.prepareStatement("INSERT INTO prodotti(tipologia,nome,descrizione,marca,prezzo,aggiuntoDa) VALUES('"+tipologia+"','"+nome+"','"+descrizione+"','"+marca+"','"+prezzo+"','"+nomeClient+"');");
+                ins.executeUpdate();
+            }
+            else{
+                return "Errore lato server durante la registrazione: connessione fallita al DB\n";
+            }
+            
+        } catch (SQLException ex) {
+            DisconnessioneDB(conn);
+            return "Errore lato server durante la registrazione: eccezione sollevata\n"+ex;
+        }
+        
+        DisconnessioneDB(conn);
+        return "Prodotto aggiunto\n";
+            
+            
+            
+
+    }
 }
 

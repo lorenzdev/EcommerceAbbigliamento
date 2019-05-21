@@ -24,13 +24,13 @@ $ok = mysqli_query($conn,$sql);
 if (!$ok) {
 
 	$sql ="CREATE TABLE Prodotti (
-	idProdotto INT(4) NOT NULL,
+	idProdotto INT(4) NOT NULL AUTO_INCREMENT,
 	tipologia CHAR(20) NOT NULL,
 	nome CHAR(30) NOT NULL,
 	descrizione CHAR(100) NOT NULL,
 	marca CHAR(30) NOT NULL,
 	prezzo FLOAT(8) NOT NULL,
-	aggiuntoDa CHAR(100) DEFAULT "prodotto base",
+	aggiuntoDa CHAR(100) DEFAULT 'prodotto base',
 	PRIMARY KEY (idProdotto)
 	);";
 

@@ -134,8 +134,7 @@ public class ClientThread extends Thread{
                     
             
             
-            out.println("Benvenuto "+nomeClient+", ora che è loggato può vedere la lista dei prodotti(1) oppure aggiungerne uno lei(2)");
-            out.println("Spezzano");
+
             Home();
                 
                 
@@ -147,6 +146,8 @@ public class ClientThread extends Thread{
     
     public void Home(){
         try{
+        out.println("Benvenuto "+nomeClient+", ora che è loggato può vedere la lista dei prodotti(1) oppure aggiungerne uno lei(2)");
+        out.println("Spezzano");
         String risp=in.readLine();
                 try{
             switch (Integer.parseInt(risp))
@@ -156,21 +157,44 @@ public class ClientThread extends Thread{
                     break;
 
                 case 2:
-                    
+                    String tipologia;
+                    String nome;
+                    String descrizione;
+                    String marca;
+                    float prezzo;
+                    out.println("Inserisci tipologia del prodotto");
+                    out.println("Spezzano");
+                    tipologia=in.readLine();
+                    out.println("Inserisci il nome del prodotto");
+                    out.println("Spezzano");
+                    nome=in.readLine(); 
+                    out.println("Inserisci la descrizione del prodotto");
+                    out.println("Spezzano");
+                    descrizione=in.readLine();
+                    out.println("Inserisci la marca del prodotto");
+                    out.println("Spezzano");
+                    marca=in.readLine();
+                    out.println("Inserisci il prezzo del prodotto");
+                    out.println("Spezzano");
+                    prezzo=Float.parseFloat(in.readLine());
+                    out.println(FunzioniServer.inserimentoDB(tipologia,nome,descrizione,marca,prezzo,nomeClient));
+                    this.Home();
                     break;
                     
                 default:
                     out.println("inserisci un valore valido (1) o (2)");
+                    this.Home();
                     break;
             }                    
-            }catch(Exception e)
+            }catch(IOException | NumberFormatException e)
             {
                 out.println("inserisci un valore valido");
+                this.Home();
             }
         }
         
-        catch(Exception ex){
-            
+        catch(IOException ex){
+            this.Home();
         }
     }
 }
