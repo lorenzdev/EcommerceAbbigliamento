@@ -16,6 +16,7 @@ import java.sql.Statement;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.ArrayList;
 
 /**
  *
@@ -154,10 +155,38 @@ public class FunzioniServer {
         
         DisconnessioneDB(conn);
         return "Prodotto aggiunto\n";
-            
-            
-            
 
     }
+   public static ArrayList<String> visualizzazioneDB(String cat){
+       Connection conn = ConnessioneDB();
+       //String[] vet = new String[10];
+       ArrayList<String> risp= new ArrayList<String>();
+       
+       try{
+            if(conn.isValid(10)){
+                //creo la query per vedere se la mail è già stata utilizzata
+                PreparedStatement sel = connection.prepareStatement("SELECT * FROM prodotti WHERE tipologia='"+cat+"';");
+                //PRENDO I RISULTATI DELLA QUERY
+                resultSet=sel.executeQuery();
+                //CICLO PER LE SOLUZIONI
+                while(resultSet.next()){ 
+                   risp.add(resultSet.getString("tipologia"));
+                 }
+                if (risp.isEmpty())
+                    risp.add("nessun prodotto con quella categoria trovato!");
+            }
+            else{
+                risp.add("Connessione fallita al DB!");
+                DisconnessioneDB(conn);
+                return risp;
+            }       
+       }catch(SQLException e){
+           risp.add("Connessione fallita al DB!");
+           DisconnessioneDB(conn);
+           return risp;
+       }
+       DisconnessioneDB(conn);
+       return risp;
+   }
 }
 
