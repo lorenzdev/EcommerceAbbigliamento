@@ -23,7 +23,13 @@ $sql ="SELECT * FROM Prodotti";
 $ok = mysqli_query($conn,$sql);
 if (!$ok) {
 
-	$sql ="INSERT INTO Prodotti (idProdotto, tipologia) VALUES ('1', 'A');";
+	$sql ="INSERT INTO Prodotti(tipologia, nome, descrizione, marca, prezzo, aggiuntoDa) VALUES ('Scarpe', 'Scarpe Sportive Nike', 'Scarpe sportive Nike', 'Nike', '30', 'Mario');";
+
+	$ok = mysqli_query($conn,$sql);
+	if (!$ok) die("Impossibile inserire i dati <br> ".mysqli_error($conn));
+	else echo "Inserimento dati avvenuto con successo<br>";
+	
+	$sql ="INSERT INTO Utenti(email, password, nome, cognome, numeroTelefono, dataNascita, indirizzo, citta) VALUES ('mariorossi@gmail.com', '1234', 'Mario', 'Rossi', '0536123456', '1/1/1990', 'via Roma', 'Roma');";
 
 	$ok = mysqli_query($conn,$sql);
 	if (!$ok) die("Impossibile inserire i dati <br> ".mysqli_error($conn));
