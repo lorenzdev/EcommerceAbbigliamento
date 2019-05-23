@@ -4,7 +4,7 @@ package javasockettcp;
 
 import java.net.*;
 import java.io.*;
-
+import java.util.ArrayList;
 
 
 
@@ -136,6 +136,12 @@ public class ClientThread extends Thread{
             
 
             Home();
+            out.println("Grazie per aver utilizzato il servizio!");
+            out.println("Spezzano");
+            in.close();
+            out.close();
+            client.close();
+            
                 
                 
         }catch(IOException e){
@@ -144,16 +150,25 @@ public class ClientThread extends Thread{
         }
     }
     
-    public void Home(){
+    public boolean Home(){
         try{
-        out.println("Benvenuto "+nomeClient+", ora che è loggato può vedere la lista dei prodotti(1) oppure aggiungerne uno lei(2)");
+        out.println("Benvenuto "+nomeClient+", ora che è loggato può vedere la lista dei prodotti(1), aggiungerne uno lei(2) oppure uscire(3)");
         out.println("Spezzano");
         String risp=in.readLine();
                 try{
             switch (Integer.parseInt(risp))
                     {
                 case 1:
-                    //vedere lista prodotti
+                    String categoria;
+                    ArrayList<String> prod = new ArrayList<String>();
+                    out.println("inserisci categoria da visualizzare\n");
+                    out.println("Spezzano");
+                    categoria=in.readLine();
+                    prod=FunzioniServer.visualizzazioneDB(categoria);
+                    for(int i =0;i<prod.size();i++){
+                        out.println(prod.get(i));
+                    }
+                    this.Home();
                     break;
 
                 case 2:
@@ -181,6 +196,9 @@ public class ClientThread extends Thread{
                     this.Home();
                     break;
                     
+                case 3:
+                    return false;
+                    
                 default:
                     out.println("inserisci un valore valido (1) o (2)");
                     this.Home();
@@ -196,5 +214,6 @@ public class ClientThread extends Thread{
         catch(IOException ex){
             this.Home();
         }
+        return false;
     }
 }
