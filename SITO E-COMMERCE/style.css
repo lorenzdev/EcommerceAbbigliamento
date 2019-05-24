@@ -1,0 +1,81 @@
+body {
+  background-color: white;
+}
+
+
+h1 {
+  color: #ff531a;
+  font-family: 'Roboto', sans-serif;
+  border: 3px solid grey;
+  border-radius: 8px;
+  font-size: 60px;
+  font-weight: bold;
+  text-align: center;
+}
+.login
+{
+  color: #ff531a;
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+  border: 3px solid grey;
+  border-radius: 8px;
+  height: 125px;
+  width: 500px;  
+  font-size:20px;
+}
+.bentornato
+{
+  color: #ff531a;
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+  border: 3px solid grey;
+  border-radius: 8px;
+  height: 60px;
+  width: 450px;  
+  font-size: 30px;	
+	
+	
+}
+
+.tipologia
+{
+  color: #ff531a;
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+  border: 3px solid grey;
+  border-radius: 8px;
+  height: 100px;
+  width: 300px;  
+  display:inline-block;
+  font-weight:25;
+}
+
+
+a {
+  color: #1a53ff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15;
+
+}
+a:link{
+color: #1a53ff;
+}
+
+
+p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+}
+
+input {
+color: grey;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  
+ }
+
+.input2 {
+  cursor: pointer;
+ 
+ }
