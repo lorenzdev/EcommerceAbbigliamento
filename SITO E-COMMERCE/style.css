@@ -70,6 +70,32 @@ h1 {
 	
 }
 
+.login
+{
+  color: #ff531a;
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+  border: 3px solid grey;
+  border-radius: 8px;
+  height: 190px;
+  width: 230px;  
+  font-size:20px;
+}
+
+.registrati
+{
+  color: #ff531a;
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+  border: 3px solid grey;
+  border-radius: 8px;
+  height: 270px;
+  width: 1000px;  
+  font-size:20px;
+  position: relative;  
+  bottom: 10px;
+  left: 150px;	  
+}
 
 a {
   color: #1a53ff;
