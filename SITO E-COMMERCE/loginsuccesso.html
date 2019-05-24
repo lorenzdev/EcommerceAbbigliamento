@@ -12,6 +12,7 @@ h1 {
   font-family: 'Roboto', sans-serif;
   border: 3px solid grey;
   border-radius: 8px;
+  font-size: 60px;  
 }
 h3 {
   color: #ff531a;
@@ -19,8 +20,19 @@ h3 {
   font-family: 'Roboto', sans-serif;
   border: 3px solid grey;
   border-radius: 8px;
-  height: 125px;
-  width: 500px;  
+  height: 60px;
+  width: 450px;  
+  font-size: 30px;   
+}
+h4 {
+  color: #ff531a;
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+  border: 3px solid grey;
+  border-radius: 8px;
+  height: 100px;
+  width: 300px;  
+
   
 }
 a {
@@ -34,11 +46,30 @@ color: #1a53ff;
 }
 
 
+input {
+color: grey;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  
+ }
+
+.input2 {
+  cursor: pointer;
+ 
+ }
 p {
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
 }
 
+select {
+ color: grey;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+ 
+}
 
 </style>
 
@@ -46,15 +77,19 @@ p {
 <body>
 <h1>NOME SITO</h1>
 <h3>
-Ben tornato *nome dell'utente*</h3>
-
-<form action="inserire_tip.php" method="get">
-<h3>
-INSERISCI e-mail: <input type="text" name="email" required> <br> </br>
-INSERISCI password: <input type="password" name="pw" required> <br> </br>
-<input type="submit" value="LOGIN"</h3>
+Bentornato *nome dell'utente*</h3>
+<h4>
+Seleziona la tipologia:
+<form action="tipologia.php">
+  <select name="tipologia">
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="fiat">Fiat</option>
+    <option value="audi">Audi</option>
+  </select>
+  <input class="input input2" type="submit" value="cerca">
 </form>
-<reg><a href="registrati.html">registrati ora</a></reg>
+</h4>
 </body>
 
 
