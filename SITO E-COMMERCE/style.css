@@ -39,6 +39,7 @@ h1 {
 
 .tipologia
 {
+  font-size: 25px;
   color: #ff531a;
   text-align: left;
   font-family: 'Roboto', sans-serif;
@@ -47,7 +48,26 @@ h1 {
   height: 100px;
   width: 300px;  
   display:inline-block;
-  font-weight:25;
+  	
+}
+
+.prodotti
+{
+  color: #ff531a;
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+  border: 3px solid grey;
+  border-radius: 8px;
+  height: 1000px;
+  width: 800px;  
+  font-weight: bold;
+  font-size: 20px; 
+  display:inline-block;
+  position: relative;  
+  bottom: 33px;
+  left:50px;	
+	
+	
 }
 
 
