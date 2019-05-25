@@ -1,9 +1,11 @@
 <?PHP
+
 if(@$_GET["submit"]){
 	
 	$user = $_GET['email'];
 	$pw = $_GET['pw'];
 
+	echo $user;
 	
 	function POST ($data,$url) {
 		$opts = array('http'=>array(
@@ -31,7 +33,7 @@ if(@$_GET["submit"]){
 				<body>
 				<h1>NOME SITO</h1>
 				<h1 class="h1 bentornato">
-				Bentornato '.$user.'</h1 class="h1 bentornato>
+				Bentornato <?php ?></h1 class="h1 bentornato>
 				<h1 class="h1 tipologia">
 				Seleziona la tipologia:
 				<form action="tipologia.php">
