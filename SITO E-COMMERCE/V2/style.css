@@ -39,6 +39,7 @@ h1 {
 
 .tipologia
 {
+  font-size: 25px;
   color: #ff531a;
   text-align: left;
   font-family: 'Roboto', sans-serif;
@@ -47,9 +48,54 @@ h1 {
   height: 100px;
   width: 300px;  
   display:inline-block;
-  font-weight:25;
+  	
 }
 
+.prodotti
+{
+  color: #ff531a;
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+  border: 3px solid grey;
+  border-radius: 8px;
+  height: 1000px;
+  width: 800px;  
+  font-weight: bold;
+  font-size: 20px; 
+  display:inline-block;
+  position: relative;  
+  bottom: 33px;
+  left:50px;	
+	
+	
+}
+
+.login
+{
+  color: #ff531a;
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+  border: 3px solid grey;
+  border-radius: 8px;
+  height: 190px;
+  width: 230px;  
+  font-size:20px;
+}
+
+.registrati
+{
+  color: #ff531a;
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+  border: 3px solid grey;
+  border-radius: 8px;
+  height: 410px;
+  width: 1000px;  
+  font-size:20px;
+  position: relative;  
+  bottom: 10px;
+  left: 150px;	  
+}
 
 a {
   color: #1a53ff;
