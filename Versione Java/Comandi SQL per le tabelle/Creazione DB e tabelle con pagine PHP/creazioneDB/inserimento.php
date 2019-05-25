@@ -34,6 +34,18 @@ if (!$ok) {
 	$ok = mysqli_query($conn,$sql);
 	if (!$ok) die("Impossibile inserire i dati <br> ".mysqli_error($conn));
 	else echo "Inserimento dati avvenuto con successo<br>";
+	
+	$sql ="INSERT INTO Prodotti(tipologia, nome, descrizione, marca, prezzo, aggiuntoDa) VALUES ('Maglia', 'Maglia invernale', 'Maglia invernale OVS', 'OVS', '35', 'Luca');";
+
+	$ok = mysqli_query($conn,$sql);
+	if (!$ok) die("Impossibile inserire i dati <br> ".mysqli_error($conn));
+	else echo "Inserimento dati avvenuto con successo<br>";
+	
+	$sql ="INSERT INTO Utenti(email, password, nome, cognome, numeroTelefono, dataNascita, indirizzo, citta) VALUES ('lucaverdi@gmail.com', 'ciao123', 'Luca', 'Verdi', '0536214389', '2/2/1995', 'via Milano', 'Milano');";
+
+	$ok = mysqli_query($conn,$sql);
+	if (!$ok) die("Impossibile inserire i dati <br> ".mysqli_error($conn));
+	else echo "Inserimento dati avvenuto con successo<br>";
 }
 ?>
 <br><br><br><br><br>
