@@ -158,7 +158,7 @@ public class FunzioniServer {
         return "Prodotto aggiunto\n";
 
     }
-    
+   //metodo per visualizzare i prodotti nel database 
    public static ArrayList<String> visualizzazioneDB(String cat){
        Connection conn = ConnessioneDB();
        //String[] vet = new String[10];
