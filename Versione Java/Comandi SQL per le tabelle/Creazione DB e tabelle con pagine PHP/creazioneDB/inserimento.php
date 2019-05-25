@@ -53,7 +53,7 @@ if (!$ok) {
 	if (!$ok) die("Impossibile inserire i dati <br> ".mysqli_error($conn));
 	else echo "Inserimento dati avvenuto con successo<br>";
 	
-	$sql ="INSERT INTO Utenti(email, password, nome, cognome, numeroTelefono, dataNascita, indirizzo, citta) VALUES ('fabiobianchi@gmail.com', '123', 'Fabio', 'Bianchi', '0536', '3/3/1999', 'via Firenze', 'Firenze');";
+	$sql ="INSERT INTO Utenti(email, password, nome, cognome, numeroTelefono, dataNascita, indirizzo, citta) VALUES ('fabiobianchi@gmail.com', '123', 'Fabio', 'Bianchi', '053641349', '3/3/1999', 'via Firenze', 'Firenze');";
 
 	$ok = mysqli_query($conn,$sql);
 	if (!$ok) die("Impossibile inserire i dati <br> ".mysqli_error($conn));
