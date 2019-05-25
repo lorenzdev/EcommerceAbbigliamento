@@ -32,7 +32,7 @@ public class FunzioniServer {
     static Connection connection = null;
     
     
-    
+    //metodo per effettuare il login, con invio di messaggio di errore se la mail e la password sono incorrette.
     public static String Login(String email, String password){
         Connection conn = ConnessioneDB();
         try {
@@ -61,7 +61,8 @@ public class FunzioniServer {
         DisconnessioneDB(conn);
         return "Qualcosa è andato sicuramente storto\n";
     }
-
+    
+    //metodo per effettuare la registrazione                                                                                                                                                                                                                                                                                 
     public static String Registrarsi(String email,String nome,String cognome,String pw,String numeroTelefono,String indirizzo,String dataNascita,String citta)
     { 
         Connection conn = ConnessioneDB();
@@ -157,6 +158,7 @@ public class FunzioniServer {
         return "Prodotto aggiunto\n";
 
     }
+    
    public static ArrayList<String> visualizzazioneDB(String cat){
        Connection conn = ConnessioneDB();
        //String[] vet = new String[10];
