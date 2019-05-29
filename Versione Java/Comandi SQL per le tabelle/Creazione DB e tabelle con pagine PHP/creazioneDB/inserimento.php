@@ -34,6 +34,30 @@ if (!$ok) {
 	$ok = mysqli_query($conn,$sql);
 	if (!$ok) die("Impossibile inserire i dati <br> ".mysqli_error($conn));
 	else echo "Inserimento dati avvenuto con successo<br>";
+	
+	$sql ="INSERT INTO Prodotti(tipologia, nome, descrizione, marca, prezzo, aggiuntoDa) VALUES ('Maglia', 'Maglia invernale', 'Maglia invernale OVS', 'OVS', '35', 'Luca');";
+
+	$ok = mysqli_query($conn,$sql);
+	if (!$ok) die("Impossibile inserire i dati <br> ".mysqli_error($conn));
+	else echo "Inserimento dati avvenuto con successo<br>";
+	
+	$sql ="INSERT INTO Utenti(email, password, nome, cognome, numeroTelefono, dataNascita, indirizzo, citta) VALUES ('lucaverdi@gmail.com', 'ciao123', 'Luca', 'Verdi', '0536214389', '2/2/1995', 'via Milano', 'Milano');";
+
+	$ok = mysqli_query($conn,$sql);
+	if (!$ok) die("Impossibile inserire i dati <br> ".mysqli_error($conn));
+	else echo "Inserimento dati avvenuto con successo<br>";
+	
+	$sql ="INSERT INTO Prodotti(tipologia, nome, descrizione, marca, prezzo, aggiuntoDa) VALUES ('Pantaloni', 'Pantaloni invernali', 'Pantaloni invernali OVS', 'OVS', '25', 'Fabio');";
+
+	$ok = mysqli_query($conn,$sql);
+	if (!$ok) die("Impossibile inserire i dati <br> ".mysqli_error($conn));
+	else echo "Inserimento dati avvenuto con successo<br>";
+	
+	$sql ="INSERT INTO Utenti(email, password, nome, cognome, numeroTelefono, dataNascita, indirizzo, citta) VALUES ('fabiobianchi@gmail.com', '123', 'Fabio', 'Bianchi', '053641349', '3/3/1999', 'via Firenze', 'Firenze');";
+
+	$ok = mysqli_query($conn,$sql);
+	if (!$ok) die("Impossibile inserire i dati <br> ".mysqli_error($conn));
+	else echo "Inserimento dati avvenuto con successo<br>";
 }
 ?>
 <br><br><br><br><br>

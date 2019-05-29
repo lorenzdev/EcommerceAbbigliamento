@@ -1,6 +1,6 @@
 <?PHP
 
-if(!true){
+if(!isset($_COOKIE['parlo'])){
 
  echo "Utente non loggato";
 
@@ -13,14 +13,11 @@ if(!true){
 
   <link rel="stylesheet" type="text/css" href="style.css">
 
-
-
-
 </head>
 <body>
 <h1>NOME SITO</h1>
 <h1 class="h1 bentornato">
-Bentornato *nome dell'utente*</h1 class="h1 bentornato>
+Bentornato <?php ?></h1 class="h1 bentornato>
 <h1 class="h1 tipologia">
 Seleziona la tipologia:
 <form action="tipologia.php">
