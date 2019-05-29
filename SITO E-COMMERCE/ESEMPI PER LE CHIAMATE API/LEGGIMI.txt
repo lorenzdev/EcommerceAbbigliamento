@@ -1,0 +1,59 @@
+RICORDATI DI FORMATTARE NELL'ARRAY BENE I CAMPI, QUA METTO SOLO IL NOME E IL TIPO
+
+http://lucatedeschini2000.pythonanywhere.com/API/Login
+metodo POST
+
+richiede in ingresso:
+	-email : stringa
+	-password : stringa
+
+restituisce
+	-status : nonloggato -> se email o pw non sono corrette
+	-status : loggato -> procedura andata a buon fine
+	-sta : ... -> se python ha sollevato un eccezione restituisce questo, ma non dovrebbe mai farlo
+
+
+
+
+
+http://lucatedeschini2000.pythonanywhere.com/API/Registrati
+metodo POST
+
+richiede in ingresso:
+	-email : stringa
+	-password : stringa
+	-nome : stringa
+	-cognome : stringa
+	-numeroTelefono : int (puoi passarlo anche come stringa, basta che sia un numero se no da errore)
+	-indirizzo : stringa
+	-dataNascita : stringa
+	-citta : stringa
+
+restituisce
+	-status : emailpresente -> email già presente nel DB
+	-status : ok -> procedura andata a buon fine
+	-sta : ... -> se python ha sollevato un eccezione restituisce questo, ma non dovrebbe mai farlo
+
+
+
+
+http://lucatedeschini2000.pythonanywhere.com/API/ListaProdotti
+metodo POST
+
+richiede in ingresso:
+	-categoria : stringa
+
+restituisce (leggi anche dopo)
+	-idProdotto : int
+	-tipologia : stringa
+	-nome : stringa
+	-descrizione : stringa
+	-marca : stringa
+	-prezzo : int
+
+visto che da una ricerca possono uscire più risultati, restituisce un file json formattato in questo modo
+{risultati:{1:{...},2:{...},3:...}}
+quando lo converti in php dovresti riuscire ad accedere i dati così ma non ho provato
+dati['risultati'][i]['marca']
+
+dove i è un intero che va da 0 fino al massimo possibile (quindi dovresti fare un for) se da problemi dimmelo che dio è un po' così
