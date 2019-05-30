@@ -1,9 +1,140 @@
-<?PHP
-if(@$_GET["submit"]){
-	
-	$user = $_GET['email'];
-	$pw = $_GET['pw'];
+<style>
+body {
+  background-color: white;
+}
 
+
+h1 {
+  color: #ff531a;
+  font-family: 'Roboto', sans-serif;
+  border: 3px solid grey;
+  border-radius: 8px;
+  font-size: 60px;
+  font-weight: bold;
+  text-align: center;
+}
+.login
+{
+  color: #ff531a;
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+  border: 3px solid grey;
+  border-radius: 8px;
+  height: 125px;
+  width: 500px;  
+  font-size:20px;
+}
+.bentornato
+{
+  color: #ff531a;
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+  border: 3px solid grey;
+  border-radius: 8px;
+  height: 60px;
+  width: 450px;  
+  font-size: 30px;	
+	
+	
+}
+
+.tipologia
+{
+  font-size: 25px;
+  color: #ff531a;
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+  border: 3px solid grey;
+  border-radius: 8px;
+  height: 100px;
+  width: 300px;  
+  display:inline-block;
+  	
+}
+
+.prodotti
+{
+  color: #ff531a;
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+  border: 3px solid grey;
+  border-radius: 8px;
+  height: 1000px;
+  width: 800px;  
+  font-weight: bold;
+  font-size: 20px; 
+  display:inline-block;
+  position: relative;  
+  bottom: 33px;
+  left:50px;	
+	
+	
+}
+
+.login
+{
+  color: #ff531a;
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+  border: 3px solid grey;
+  border-radius: 8px;
+  height: 210px;
+  width: 230px;  
+  font-size:20px;
+}
+
+.registrati
+{
+  color: #ff531a;
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+  border: 3px solid grey;
+  border-radius: 8px;
+  height: 410px;
+  width: 1000px;  
+  font-size:20px;
+  position: relative;  
+  bottom: 10px;
+  left: 150px;	  
+}
+
+a {
+  color: #1a53ff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15;
+
+}
+a:link{
+color: #1a53ff;
+}
+
+
+p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+}
+
+input {
+color: grey;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  
+ }
+
+.input2 {
+  cursor: pointer;
+
+ }
+</style>
+<?PHP
+
+if(@$_POST["submit"]){
+	
+	$user = $_POST['email'];
+	$pw = $_POST['pw'];
+
+	//echo $user;
 	
 	function POST ($data,$url) {
 		$opts = array('http'=>array(
@@ -22,72 +153,59 @@ if(@$_GET["submit"]){
 	$data=array("email" => $user,
 				"password" => $pw);
 	$risp=POST($data,$url);
-	echo $risp['status'];
-	
-	$LOGINSUCCESSO = '<html>
-<head>
-
-  <link rel="stylesheet" type="text/css" href="style.css">
-
-
-
-
+	//echo $risp['status'];
+	//echo $user;
+	$LOGGATO = '<html>
+				<head>
+				<link rel="stylesheet" type="text/css" href="style.css">
+				</head>
+				<body>
+				<h1 class="h1 tipologia">
+				Seleziona la tipologia:
+				<form action="tipologia.php">
+				  <select name="tipologia">
+					<option value="volvo">Volvo</option>
+					<option value="saab">Saab</option>
+					<option value="fiat">Fiat</option>
+					<option value="audi">Audi</option>
+				  </select>
+				  <input class="input input2" type="submit" value="cerca">
+				</form>
+				</h1 class="h1 tipologia>
+				</body>
+				</html>';
+	$NONLOGGATO = '<html>
+<head>  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 <h1>NOME SITO</h1>
-<h1 class="h1 bentornato">
-Bentornato *nome dell\'utente*</h1 class="h1 bentornato">
-
-
-<h1 class="h1 tipologia">
-Seleziona la tipologia:
-<form action="tipologia.php">
-  <select name="tipologia">
-    <option value="volvo">Volvo</option>
-    <option value="saab">Saab</option>
-    <option value="fiat">Fiat</option>
-    <option value="audi">Audi</option>
-  </select>
-  <input class="input input2" type="submit" value="cerca">
+<form action="home.php" method="get">
+<h1 class="h1 login">
+INSERISCI e-mail: <input type="text" name="email" required> <br> </br>
+INSERISCI password: <input type="password" name="pw" required> <br> </br>
+<input class="input input2" type="submit" value="LOGIN" name="submit"> Credenziali errate riprova</h1> 
 </form>
-</h1 class="h1 tipologia">
 
-<h1 class="h1 prodotti">
-blabla
-
-</h1 class="h1 prodotti">
-
-
-</body>
+<reg><a href="registrati.html">registrati ora</a></reg>
 
 
 
 </html>';
-	$LOGINERRATO = '<html>
-				<head>  <link rel="stylesheet" type="text/css" href="style.css">
-				</head>
-				<body>
-				<h1>NOME SITO</h1>
-				<form action="home.php" method="get">
-				<h1 class="h1 login">
-				INSERISCI e-mail: <input type="text" name="email" required> <br> </br>
-				INSERISCI password: <input type="password" name="pw" required> <br> </br>
-				<input class="input input2" type="submit" value="LOGIN" name="submit"> Credenziali errate riprova</h1> 
-				</form>
-
-				<reg><a href="registrati.html">registrati ora</a></reg>
-
-
-
-				</html>';
-	if(true)
+	
+	if($risp['status'] == "nonloggato")
 	{
-		echo $LOGINSUCCESSO;
+		echo '<h1>NOME SITO</h1>';
+		echo '				<h1 class="h1 bentornato">
+				Bentornato '. $user .'
+							</h1 class="h1 bentornato>
+			';
+		echo $LOGGATO;
 	}
 	else
 	{
-		
+		echo $LOGGATO;		
 	}
+	
 	exit;
 	//setcookie('parlo',$risp['status']);			
 				
@@ -102,35 +220,29 @@ blabla
 
   <link rel="stylesheet" type="text/css" href="style.css">
 
+
 </head>
 <body>
 <h1>NOME SITO</h1>
-<form action="inserire_con.php" method="get">
+<form action="home.php" method="post">
 <h1 class="h1 login">
 INSERISCI e-mail: <input type="text" name="email" required> <br> </br>
 INSERISCI password: <input type="password" name="pw" required> <br> </br>
-<input class="input input2" type="submit" value="LOGIN"</h1>
+<input class="input input2" type="submit" value="LOGIN" name="submit"></h1>
 </form>
 <reg><a href="registrati.html">registrati ora</a></reg>
 
-
+<!--
 
 <button onclick="myFunction()">Try it</button>
 
 <script>
 function myFunction() {
-var v= confirm("Are u sure?");  
-if(v==true){  
-alert("ok");  
-}  
-else{  
-alert("cancel");  
-} 
+  alert("I am an alert box!");
 }
-
 </script>
 
-
+-->
 
 </body>
 

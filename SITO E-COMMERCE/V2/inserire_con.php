@@ -8,7 +8,7 @@ $data=array("email" => $user,
 			"password" => $pw);
 $risp=POST($data,$url);
 echo $risp['status'];
-			
+setcookie('parlo',$risp['status']);			
 			
 function POST ($data,$url) {
 $opts = array('http'=>array(
