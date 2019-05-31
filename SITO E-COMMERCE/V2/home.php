@@ -192,6 +192,71 @@ INSERISCI password: <input type="password" name="pw" required> <br> </br>
 
 </html>';
 	
+	
+$p='<?PHP
+
+if(@$_POST["submit"]){
+	function POST ($data,$url) {
+		$opts = array("http"=>array(
+						"header" => "Content-type: application/x-www-form-urlencoded\r\n",
+						"method\' \ => "POST",
+						"content" => json_encode($data)));
+		$context = stream_context_create($opts);
+		$header = file_get_contents($url,false,$context);
+		//echo $header;
+		$header = json_decode($header, true);
+		return $header;
+		//echo $header["status"];	
+	}		
+	$tipologia = $_POST["tipologia"];
+
+	//echo $user;
+
+
+
+
+	
+	$url="http://lucatedeschini2000.pythonanywhere.com/API/ListaProdotti";
+	$data=array("categoria" => $tipologia);
+	$risp=POST($data,$url);
+	//echo $risp["status"];
+	//echo $user;
+
+
+	
+	exit;
+	//setcookie("parlo",$risp["status"]);			
+				
+	
+}
+
+
+?>
+
+<html>
+<head>
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+<form action="registratiprova.php" method="POST">
+<h1 class="h1 registrati">
+
+INSERISCI il tipo: <input type="text" name="tipologia" required> 
+
+<input class="input input2" type="submit" value="CERCA" name="submit"</h1>
+</form>
+
+
+
+
+
+</body>
+
+
+
+</html>';	
 	if($risp['status'] == "nonloggato")
 	{
 		echo '<h1>NOME SITO</h1>';
@@ -199,7 +264,9 @@ INSERISCI password: <input type="password" name="pw" required> <br> </br>
 				Bentornato '. $user .'
 							</h1 class="h1 bentornato>
 			';
-		echo $LOGGATO;
+		
+		echo $p;
+		
 	}
 	else
 	{
@@ -230,7 +297,7 @@ INSERISCI e-mail: <input type="text" name="email" required> <br> </br>
 INSERISCI password: <input type="password" name="pw" required> <br> </br>
 <input class="input input2" type="submit" value="LOGIN" name="submit"></h1>
 </form>
-<reg><a href="registrati.html">registrati ora</a></reg>
+<reg><a href="registrati.php">registrati ora</a></reg>
 
 <!--
 

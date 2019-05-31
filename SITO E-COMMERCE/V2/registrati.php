@@ -1,6 +1,6 @@
 <?PHP
 if(@$_POST["submit"]){
-	echo prova;
+	echo "prova";
 	$user = $_POST['email'];
 	$pw = $_POST['pw'];
 	$nome = $_POST['nome'];
@@ -35,7 +35,7 @@ if(@$_POST["submit"]){
 				"città" => $città
 				);
 	$risp=POST($data,$url);
-	echo $risp['status'];
+	//echo $risp['status'];
 	
 	$REGISTRATISUC= '<html><head>
   <link rel="stylesheet" type="text/css" href="style.css">
@@ -115,7 +115,7 @@ INSERISCI la città: <input type="text" name="città" required> </li> <br> </br>
 <li>INSERISCI il cap: <input type="text" name="cap" required> </li> 
 
 </ul>
-<input class="input input2" type="submit" value="REGISTRATI	"</h1>
+<input class="input input2" type="submit" value="REGISTRATI	" name="submit"</h1>
 </form>
 
 
