@@ -49,7 +49,7 @@ public class FunzioniServer {
                     return "Email o Password incorrette!\n";
                 }
             }
-
+        //Messaggio di errore mail non registrata
         } catch (SQLException ex) {
             //probabilmente se entra qua, la query non ha trovato email quindi ha sollevato un eccezione
             DisconnessioneDB(conn);
@@ -81,26 +81,26 @@ public class FunzioniServer {
                 while(resultSet.next() && !flag){ 
                    if(resultSet.getString("email").equals(email))
                        flag=true;
-                 }
+                 }//Messaggio di avviso mail già presente nel database
                 if (flag){
                     return "La mail è già presente nel DB\n";
                 }
-                else{
+                else{//Nel caso la mail non ci fosse già viene inserita con tutti i dati
                     //inserisco i dati di registrazione nel DB
                     //TODO controllo integrità dei dati
                     PreparedStatement ins = connection.prepareStatement("INSERT INTO utenti VALUES('"+email+"','"+pw+"','"+nome+"','"+cognome+"','"+numeroTelefono+"','"+dataNascita+"','"+indirizzo+"','"+citta+"');");
                     ins.executeUpdate();
                 }
-            }
+            }//Messaggio di errore connessione fallita durante la registrazione
             else{
                 return "Errore lato server durante la registrazione: connessione fallita al DB\n";
             }
-            
+            //Messaggio di errore registrazione lato server
         } catch (SQLException ex) {
             DisconnessioneDB(conn);
             return "Errore lato server durante la registrazione: eccezione sollevata\n";
         }
-        
+        //Messaggio di avviso avvenuta registrazione
         DisconnessioneDB(conn);
         return "Ti sei registrato\n";
     }   
