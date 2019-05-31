@@ -145,16 +145,16 @@ public class FunzioniServer {
             if(conn.isValid(10)){
                 PreparedStatement ins = connection.prepareStatement("INSERT INTO prodotti(tipologia,nome,descrizione,marca,prezzo,aggiuntoDa) VALUES('"+tipologia+"','"+nome+"','"+descrizione+"','"+marca+"','"+prezzo+"','"+nomeClient+"');");
                 ins.executeUpdate();
-            }
+            }//Messaggio di segnalazione errore server durante la registrazione
             else{
                 return "Errore lato server durante la registrazione: connessione fallita al DB\n";
             }
-            
+        //Messaggio di segnalazione in caso di errore registrazione da parte del server   
         } catch (SQLException ex) {
             DisconnessioneDB(conn);
             return "Errore lato server durante la registrazione: eccezione sollevata\n"+ex;
         }
-        
+        //Messaggio di segnalazione prodotto aggiunto
         DisconnessioneDB(conn);
         return "Prodotto aggiunto\n";
 
@@ -178,12 +178,12 @@ public class FunzioniServer {
                 if (risp.isEmpty())
                     risp.add("nessun prodotto con quella categoria trovato!");
             }
-            else{
+            else{//Messaggio di segnalazione in caso fallisse la connessione al database
                 risp.add("Connessione fallita al DB!");
                 DisconnessioneDB(conn);
                 return risp;
             }       
-       }catch(SQLException e){
+       }catch(SQLException e){//Messaggio di errore in caso fallisse la connessione al database
            risp.add("Connessione fallita al DB!");
            DisconnessioneDB(conn);
            return risp;
