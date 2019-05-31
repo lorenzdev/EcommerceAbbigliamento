@@ -10,8 +10,14 @@
 <?php
 //tutta sta roba ti conviene farla in una funzione che chiede in ingresso la variabile $data e l'url, e poi returna l'$header
 //costruire un array con i dati che richiede il sito (vedi LEGGIMI.txt)
-$data=array("email" => "prova",
-			"password" => "provaa");
+$data=array("email" => "ersgre",
+			"password" => "erghrtedh",
+			"nome" => "ersgedrfg",
+			"cognome" => "vrjgn",
+			"numeroTelefono" => 123,
+			"indirizzo" => "gergerdv",
+			"dataNascita" => "erhb",
+			"città" => "wesf");
 //questo va lasciato uguale
 $opts = array('http'=>array(
 				'header' => "Content-type: application/x-www-form-urlencoded\r\n",
@@ -19,7 +25,7 @@ $opts = array('http'=>array(
 				'content' => json_encode($data)));
 $context = stream_context_create($opts);
 //url dell'api
-$url='http://lucatedeschini2000.pythonanywhere.com/API/Login';
+$url='http://lucatedeschini2000.pythonanywhere.com/API/Registrati';
 //con sto comando invii i dati e riceve la risposta nella variabile
 $header = file_get_contents($url,false,$context);
 //traduce il risultato in un vettore
