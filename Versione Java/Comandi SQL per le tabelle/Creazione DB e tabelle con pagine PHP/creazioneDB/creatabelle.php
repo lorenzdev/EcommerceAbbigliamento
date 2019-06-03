@@ -54,10 +54,6 @@ if (!$ok) {
 	if (!$ok) die("Impossibile creare tabella Utenti <br> ".mysqli_error($conn));
 	else echo "tabella Utenti creata correttamente<br>";
 	
-	$ok = mysqli_query($conn,$sql);
-	if (!$ok) die("Impossibile creare tabella Prodotti <br> ".mysqli_error($conn));
-	else echo "tabella Prodotti creata correttamente<br>";
-	
 	$sql ="CREATE TABLE Possiede (
 	idProdotto INT UNSIGNED NOT NULL,
     email INT UNSIGNED NOT NULL,
