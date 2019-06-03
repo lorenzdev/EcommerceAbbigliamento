@@ -55,16 +55,16 @@ if (!$ok) {
 	else echo "tabella Utenti creata correttamente<br>";
 	
 	$sql ="CREATE TABLE Possiede (
-	idProdotto INT UNSIGNED NOT NULL,
-    email INT UNSIGNED NOT NULL,
+	idProdotto INT(4),
+    email CHAR(50),
     PRIMARY KEY (idProdotto, email),
-    FOREIGN KEY (idProdotto)  REFERENCES Prodotti (idProdotto),
+    FOREIGN KEY (idProdotto) REFERENCES Prodotti (idProdotto),
     FOREIGN KEY (email) REFERENCES Utenti (email)
 	);";
 
 	$ok = mysqli_query($conn,$sql);
-	if (!$ok) die("Impossibile creare tabella Utenti <br> ".mysqli_error($conn));
-	else echo "tabella Utenti creata correttamente<br>";
+	if (!$ok) die("Impossibile creare tabella Possiede <br> ".mysqli_error($conn));
+	else echo "tabella Possiede creata correttamente<br>";
 }
 else{
 echo "tabelle già create in precedenza <br>";
